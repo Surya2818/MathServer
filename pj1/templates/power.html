@@ -1,40 +1,3 @@
-# Ex.05 Design a Website for Server Side Processing
-## Date:08/12/2024
-
-## AIM:
- To design a website to calculate the power of a lamp filament in an incandescent bulb in the server side. 
-
-
-## FORMULA:
-P = I<sup>2</sup>R
-<br> P --> Power (in watts)
-<br> I --> Intensity
-<br> R --> Resistance
-
-## DESIGN STEPS:
-
-### Step 1:
-Clone the repository from GitHub.
-
-### Step 2:
-Create Django Admin project.
-
-### Step 3:
-Create a New App under the Django Admin project.
-
-### Step 4:
-Create python programs for views and urls to perform server side processing.
-
-### Step 5:
-Create a HTML file to implement form based input and output.
-
-### Step 6:
-Publish the website in the given URL.
-
-## PROGRAM :
-'''
-power.html code
-
 <html>
 
 <head>
@@ -60,8 +23,8 @@ power.html code
             width: 500px;
             min-height: 300px;
             font-size: 20px;
-            background: rgb(51, 47, 168);
-            background: linear-gradient(90deg, rgb(7, 159, 241) 9%, rgb(118, 204, 224) 56%);
+            background: rgb(152, 17, 118);
+            background: linear-gradient(90deg, rgb(43, 139, 161) 9%, rgb(99, 197, 75) 56%);
             border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
@@ -112,48 +75,3 @@ power.html code
 </body>
 
 </html>
-urls.py:
-from django.contrib import admin
-from django.urls import path
-from app1 import views
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('Power/',views.power,name="Power"),
-    path('',views.power,name="Power")
-]
-views.py:
-from django.shortcuts import render
-
-def power(request):
-    context={}
-    context['Power'] = ""
-    context['i'] = ""
-    context['r'] = ""
-    if request.method == 'POST':
-        print("POST method is used")
-        I = request.POST.get('Intensity','')
-        R = request.POST.get('Resistence','')
-        print('request=',request)
-        print('Intensity=',I)
-        print('Resistence=',R)
-        Power = int(I) * int(I) * int(R)
-        context['Power'] = Power
-        context['i'] = I
-        context['r'] = R
-        print('Power=',Power)
-    return render(request,'power.html',context)
-    '''
-
-
-
-
-## SERVER SIDE PROCESSING:
-![alt text](<Screenshot 2024-12-08 222557.png>)
-
-
-## HOMEPAGE:
-![alt text](<Screenshot 2024-12-08 221951.png>)
-
-
-## RESULT:
-The program for performing server side processing is completed successfully.
